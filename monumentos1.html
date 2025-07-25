@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monumentos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .mapa {
+      background-color: #e6dbc8;
+      height: 40vh;
+      position: relative;
+    }
+
+    .mapa img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .punto {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #b99c67;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+
+    .contenido {
+      background-color: #fdfaf4;
+      padding: 20px;
+      min-height: 50vh;
+    }
+
+    .viewer-luma, .descripcion {
+      display: none;
+    }
+
+    .viewer-luma.active, .descripcion.active {
+      display: block;
+    }
+
+    .viewer-luma {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 15px;
+    }
+
+    .viewer-luma iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .descripcion {
+      background: #fff5dd;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #b99c67;
+    }
+
+    @media (max-width: 768px) {
+      .viewer-luma {
+        aspect-ratio: 4 / 3;
+      }
+
+      .descripcion h2 {
+        font-size: 1.2rem;
+      }
+
+      .descripcion p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="split-container" style="flex-direction: column">
+    <!-- Mapa -->
+    <div class="mapa">
+      <img src="D:\37_Projects\QR\trenmaya.github.io\Imagenes\mapa1.jpeg" alt="Mapa de monumentos" />
+      <div class="punto" style="top: 40%; left: 30%" onclick="mostrarMonumento('t7_09127')"></div>
+      <div class="punto" style="top: 60%; left: 55%" onclick="mostrarMonumento('t7_09215')"></div>
+    </div>
+
+    <!-- Contenido (siempre presente, pero inicialmente vacío) -->
+    <div class="contenido">
+      <div class="viewer-luma" id="viewerLuma">
+        <iframe id="lumaFrame" src=""></iframe>
+      </div>
+      <div class="descripcion" id="textoMonumento"></div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarMonumento(id) {
+      const data = {
+        "t7_09127": {
+          luma: "https://lumalabs.ai/embed/39cf855f-8ec9-4fcd-9877-977036649c11?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false",
+          titulo: "Monumento T7_09127",
+          texto: "Este monumento fue hallado en el Tramo 7 del Tren Maya. Se caracteriza por..."
+        },
+        "t7_09215": {
+          luma: "https://lumalabs.ai/embed/bdd55e18-bcb2-4562-b8ea-yyyyyyyyyyyy",
+          titulo: "Monumento T7_09215",
+          texto: "Este monumento tiene un alto grado de conservación y presenta rasgos únicos de la región norte de Campeche..."
+        }
+      };
+
+      const seleccionado = data[id];
+      const iframe = document.getElementById("lumaFrame");
+      const viewer = document.getElementById("viewerLuma");
+      const texto = document.getElementById("textoMonumento");
+
+      iframe.src = seleccionado.luma;
+      viewer.classList.add("active");
+      texto.classList.add("active");
+      texto.innerHTML = `<h2>${seleccionado.titulo}</h2><p>${seleccionado.texto}</p>`;
+    }
+  </script>
+</body>
+</html>
