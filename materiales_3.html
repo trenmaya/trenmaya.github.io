@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materiales</title>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
+  <style>
+    :root {
+      --fondo: #f5f5f5;
+      --boton_1: #6a1c32ff;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--fondo);
+    }
+
+    .gallery-container {
+      width: 80%;
+      margin: 50px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: flex;
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      z-index: 1;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: var(--fondo);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .close {
+      color: var(--boton_1);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #aframe-container {
+      width: 100%;
+      height: 56.25vw;
+      max-height: 80vh;
+      border-radius: 10px;
+      border: 2px solid var(--boton_1);
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gallery-container">
+    <div class="gallery-item" onclick="loadModel('Plato', 'modelos/conjunto_3/0000322.glb', 'Plato')">
+      <img src="imagenes/conjunto_3/0000322.jpg" alt="Plato" />
+    </div>
+
+    <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0000323.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0000323.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0000750.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0000750.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0001149.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0001149.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0001160.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0001160.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0001375.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0001375.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0001838.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0001838.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0001917.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0001917.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0002587.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0002587.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_3/0002636.glb', 'Vaso')">
+      <img src="imagenes/conjunto_3/0002636.jpg" alt="Vaso" />
+    </div>
+
+ <div class="gallery-item" onclick="loadModel('Vaso', 'modelos/conjunto_2/0003557.glb', 'Vaso')">
+      <img src="imagenes/conjunto_2/0003557.jpg" alt="Vaso" />
+    </div>
+  </div>
+  <!-- Modal único con una sola escena -->
+  <div id="viewer" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeViewer()">&times;</span>
+      <h2 id="viewer-title"></h2>
+      <div id="aframe-container">
+        <a-scene gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/" embedded>
+          <a-assets id="dynamic-assets"></a-assets>
+          <a-entity id="camera" camera look-controls orbit-controls="target: #target;
+                  autoRotate: false;
+                  enableDamping: true;
+                  dampingFactor: 0.125;
+                  rotateSpeed: 0.08;
+                  minDistance: 0.2;
+                  maxDistance: 0.2;" position="0.2 0.2 0.2"></a-entity>
+          <a-entity id="target" position="0 0 0"></a-entity>
+          <a-entity light="type: ambient; intensity: 1"></a-entity>
+          <a-sky color="#E6F3F5"></a-sky>
+        </a-scene>
+      </div>
+      <p id="viewer-desc"></p>
+    </div>
+  </div>
+
+  <script>
+    function loadModel(title, modelPath, description) {
+      document.getElementById('viewer-title').textContent = title;
+      document.getElementById('viewer-desc').textContent = description;
+
+      const target = document.getElementById('target');
+      if (target.hasAttribute('gltf-model')) {
+        target.removeAttribute('gltf-model');
+      }
+      target.setAttribute('gltf-model', modelPath);
+      document.getElementById('viewer').classList.add('show');
+    }
+
+    function closeViewer() {
+      document.getElementById('viewer').classList.remove('show');
+      document.getElementById('target').removeAttribute('gltf-model');
+    }
+  </script>
+</body>
+
+</html>
