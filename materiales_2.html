@@ -113,7 +113,7 @@
       <span class="close" onclick="closeViewer()">&times;</span>
       <h2 id="viewer-title"></h2>
       <div id="aframe-container">
-        <a-scene embedded>
+        <a-scene gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/" embedded>
           <a-assets id="dynamic-assets"></a-assets>
           <a-entity id="camera" camera look-controls orbit-controls="target: #target;
                   autoRotate: false;
