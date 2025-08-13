@@ -35,7 +35,7 @@ el.addEventListener("gps-camera-update-position", e => {
             });
             entity.setAttribute('material', { color: 'yellow' } );
             entity.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude
+                latitude: e.detail.position.latitude,
                 longitude: e.detail.position.longitude + 0.001
             });
             document.querySelector("a-scene").appendChild(entity);
