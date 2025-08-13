@@ -1,0 +1,100 @@
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin:0; overflow:hidden;">
+<a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; gpsMinDistance: 5; gpsTimeInterval: 3000"
+>
+  <a-camera gps-new-camera rotation-reader></a-camera>
+
+  <!-- Archaeological Site Container -->
+  <a-entity id="archaeoSite"
+    gps-new-entity-place="latitude: 18.51012334; longitude: -88.30974363"
+    visible="false">
+
+    <!-- Terrain Model -->
+    <a-entity
+      gltf-model="modelos/conjunto_1/1.glb"
+      scale="10 10 10"
+      rotation="0 180 0">
+    </a-entity>
+
+    <!-- Artifact 1 -->
+    <a-entity
+      gltf-model="modelos/conjunto_1/3.glb"
+      scale="1 1 1"
+      position="2 0.5 -3"
+      class="artifact"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+    </a-entity>
+
+    <!-- Artifact 2 -->
+    <a-entity
+      gltf-model="url(models/artifact2.glb)"
+      scale="0.8 0.8 0.8"
+      position="-2 0.3 1"
+      class="artifact"
+      animation="property: position; dir: alternate; to: -2 1 1; loop: true; dur: 2000">
+    </a-entity>
+
+    <!-- Info hotspot -->
+    <a-sphere
+      id="hotspot1"
+      position="2 1 -3"
+      radius="0.3"
+      material="color: yellow; opacity: 0.6"
+      class="hotspot">
+    </a-sphere>
+
+    <!-- Ambient sound -->
+    <a-sound src="url(audio/ambient-site.mp3)" autoplay="false" loop="true"></a-sound>
+  </a-entity>
+</a-scene>
+
+<script>
+let siteEntity = document.getElementById("archaeoSite");
+let cameraEl = document.querySelector("[gps-new-camera]");
+let soundEl = siteEntity.querySelector("a-sound");
+
+// Show site when within 25m of coordinates
+cameraEl.addEventListener("gps-camera-update-position", (e) => {
+  const lat = e.detail.position.latitude;
+  const lon = e.detail.position.longitude;
+  const targetLat = 20.967370;
+  const targetLon = -89.592586;
+
+  const distance = getDistance(lat, lon, targetLat, targetLon);
+  if (distance < 25) {
+    siteEntity.setAttribute("visible", true);
+    if (!soundEl.components.sound.isPlaying) soundEl.components.sound.playSound();
+  } else {
+    siteEntity.setAttribute("visible", false);
+    if (soundEl.components.sound.isPlaying) soundEl.components.sound.stopSound();
+  }
+});
+
+// Hotspot interaction
+document.querySelectorAll(".hotspot").forEach(hs => {
+  hs.addEventListener("click", () => {
+    alert("Artifact: This ceramic piece dates back to the Late Classic period.");
+  });
+});
+
+// Distance calculation
+function getDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371000;
+  const dLat = (lat2-lat1) * Math.PI/180;
+  const dLon = (lon2-lon1) * Math.PI/180;
+  const a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+}
+</script>
+</body>
+</html>
