@@ -22,4 +22,69 @@ window.onload = () => {
         }
         testEntityAdded = true;
     });
+
+el.addEventListener("gps-camera-update-position", e => {
+        if(!testEntityAdded) {
+            alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
+            // Add a box to the north of the initial GPS position
+            const entity = document.createElement("a-sphere");
+            entity.setAttribute("scale", {
+                x: 20, 
+                y: 20,
+                z: 20
+            });
+            entity.setAttribute('material', { color: 'yellow' } );
+            entity.setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude
+                longitude: e.detail.position.longitude + 0.001
+            });
+            document.querySelector("a-scene").appendChild(entity);
+        }
+        testEntityAdded = true;
+    });
+
+el.addEventListener("gps-camera-update-position", e => {
+        if(!testEntityAdded) {
+            alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
+            // Add a box to the north of the initial GPS position
+            const entity = document.createElement("a-cylinder");
+            entity.setAttribute("scale", {
+                x: 20, 
+                y: 20,
+                z: 20
+            });
+            entity.setAttribute('material', { color: 'orange' } );
+            entity.setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude - 0.001,
+                longitude: e.detail.position.longitude
+            });
+            document.querySelector("a-scene").appendChild(entity);
+        }
+        testEntityAdded = true;
+    });
+
+el.addEventListener("gps-camera-update-position", e => {
+        if(!testEntityAdded) {
+            alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
+            // Add a box to the north of the initial GPS position
+            const entity = document.createElement("a-cone");
+            entity.setAttribute("scale", {
+                x: 20, 
+                y: 20,
+                z: 20
+            });
+            entity.setAttribute('material', { color: 'magenta' } );
+            entity.setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude - 0.001,
+                longitude: e.detail.position.longitude
+            });
+            document.querySelector("a-scene").appendChild(entity);
+        }
+        testEntityAdded = true;
+    });
+
+
+
+
+
 };
