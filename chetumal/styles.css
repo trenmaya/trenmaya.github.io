@@ -28,7 +28,7 @@ body {
 }
 
 body.chetumal {
-  background-color: var(--color_chak_fondo);
+  background-color: var(--color_chetumal_fondo);
 }
 
 body.yax {
