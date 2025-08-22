@@ -8,6 +8,15 @@
   --color_kan_lineas: #7a765b;
   --color_sak_fondo: #d9d9d9;
   --color-sak_lineas: #8c8c8c;
+  --color-noroccidental: #f1a626ff;
+  --color-alto: #ef2265ff;
+  --color-peten: #661114ff;
+  --color-bec: #3a5425ff;
+  --color-costa: #169ec8ff;
+  --color-planicie: #196fa0ff;
+  --color-nororiental: #0f8a6bff;
+  --color-puuc: #bedd9aff;
+  --color-chenes: #5e7d42ff;
 }
 
 * {
@@ -34,7 +43,7 @@ body.chak .texto {
   font-size: 14px;
   font-weight: 500;
   color: var(--color_chak_letras);
-text-align: justify;
+  text-align: justify;
 }
 
 body.yax {
@@ -91,8 +100,6 @@ body.chak .header-title h1 {
   color: var(--color_chak_letras);
 }
 
-
-
 /* Botones y secciones */
 .content-wrapper {
   display: flex;
@@ -132,8 +139,8 @@ body.chak .header-title h1 {
 }
 
 /* chak */
-body.chak .styled-button{
-color: var(--color_chak_letras)
+body.chak .styled-button {
+  color: var(--color_chak_letras);
 }
 
 /* Responsivo */
@@ -217,6 +224,113 @@ color: var(--color_chak_letras)
   cursor: pointer;
   border: 2px solid white;
 }
+
+.punto_mapa {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+
+.noroccidental
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-noroccidental);
+}
+
+.alto
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-alto);
+}
+
+.peten
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-peten);
+}
+
+.bec
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-bec);
+}
+
+.costa
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-costa);
+}
+
+.planicie
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-planicie);
+}
+
+.nororiental
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-nororiental);
+}
+
+.puuc
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-puuc);
+}
+
+.chenes
+{
+ position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid white;
+background-color: var(--color-chenes);
+}
+
+
+
+
+
+
+
+
 
 .contenido {
   background-color: #fdfaf4;
