@@ -1,6 +1,7 @@
 :root {
   --color_chak_fondo: #e48985;
   --color_chak_lineas: #634948;
+  --color_chak_letras: #331514;
   --color_yax_fondo: #c1feff;
   --color_yax_lineas: #457f80;
   --color_kan_fondo: #faec8d;
@@ -27,6 +28,13 @@ body {
 
 body.chak {
   background-color: var(--color_chak_fondo);
+}
+
+body.chak .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_chak_letras);
+text-align: justify;
 }
 
 body.yax {
@@ -78,6 +86,13 @@ body.chak .main-container {
   width: auto;
 }
 
+/* chak */
+body.chak .header-title h1 {
+  color: var(--color_chak_letras);
+}
+
+
+
 /* Botones y secciones */
 .content-wrapper {
   display: flex;
@@ -116,6 +131,11 @@ body.chak .main-container {
   transform: translateY(-2px);
 }
 
+/* chak */
+body.chak .styled-button{
+color: var(--color_chak_letras)
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .header-title h1 {
@@ -129,10 +149,12 @@ body.chak .main-container {
   .info-section {
     min-height: auto;
   }
-  /*cuatro botones en la parte superior*/
+
+  /*General*/
   .top-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columnas */
     gap: 15px;
     margin-bottom: 20px;
     justify-content: center;
@@ -143,6 +165,18 @@ body.chak .main-container {
     text-align: center;
     padding: 5%;
     font-size: 14px;
+  }
+
+  /*Chak*/
+
+  body.chak .top-buttons {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  body.chak .top-buttons .styled-button {
+    padding: 3%;
   }
 }
 

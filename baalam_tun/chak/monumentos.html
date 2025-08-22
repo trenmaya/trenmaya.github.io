@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monumentos</title>
+    <link rel="stylesheet" href="../../styles.css" />
+   
+</head>
+
+<body>
+    <div class="split-container" style="flex-direction: column">
+        <!-- Mapa -->
+        <div class="mapa">
+            <img src="imagenes/mapa.jpeg"
+                alt="Mapa de monumentos" />
+            <div class="punto" style="top: 10%; left: 70%" onclick="mostrarMonumento('T6_08179')"></div>
+            <div class="punto" style="top: 35%; left: 20%" onclick="mostrarMonumento('T6_08176')"></div>
+            <div class="punto" style="top: 45%; left: 59%" onclick="mostrarMonumento('T6_08183')"></div>
+        </div>
+
+        <!-- Contenido (siempre presente, pero inicialmente vacío) -->
+        <div class="contenido">
+            <div class="viewer-luma" id="viewerLuma">
+                <iframe id="lumaFrame" src=""></iframe>
+            </div>
+            <div class="descripcion" id="textoMonumento"></div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarMonumento(id) {
+            const data = {
+                "T6_08179": {
+                    luma: "https://superspl.at/s?id=eddf041c",
+                    titulo: "Monumento T6_08179",
+                    texto: "Basamento. La plaza estuvo abierta hacia el costado este, en el extremo oeste se encuentra una pirámide en tanto en el norte de se encuentra limitada por diferentes plataformas. El edificio se construyó aprovechando un afloramiento de la roca madre, de lo que se explica la diversa altura de los muros del basamento."
+                },
+                "T6_08176": {
+                    luma: "https://superspl.at/s?id=166fc01a",
+                    titulo: "Monumento T6_08176",
+                    texto: "Esta es la estructura más alta y es la principal del conjounto ya que se encuentra justo enfrente del acceso a la plaza y delimita a la misma. Se trata de una plataforma piramidal escalonada con cista y acceso al este. Aparentemente contaba con una estructura superior que pudo tratatrse de un templo o un santuario hecho con materiales perecederos."
+                },
+                "T6_08183": {
+                    luma: "https://superspl.at/s?id=6478e3f8",
+                    titulo: "Monumento T6_08183",
+                    texto: "Plataforma central del conjunto"
+                }
+            };
+            const seleccionado = data[id];
+            const iframe = document.getElementById("lumaFrame");
+            const viewer = document.getElementById("viewerLuma");
+            const texto = document.getElementById("textoMonumento");
+            iframe.src = seleccionado.luma;
+            viewer.classList.add("active");
+            texto.classList.add("active");
+            texto.innerHTML = `<h2>${seleccionado.titulo}</h2><p>${seleccionado.texto}</p>`;
+        }
+    </script>
+</body>
+
+</html>
