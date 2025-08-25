@@ -5,6 +5,7 @@
 </head>
 <body style="margin:0; overflow:hidden;">
 <a-scene
+    gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
     vr-mode-ui="enabled: false"
     embedded
     arjs="sourceType: webcam; gpsMinDistance: 5; gpsTimeInterval: 3000"
@@ -18,14 +19,14 @@
 
     <!-- Terrain Model -->
     <a-entity
-      gltf-model="modelos/conjunto_1/1.glb"
+      gltf-model="1.glb"
       scale="100 100 100"
       rotation="0 180 0">
     </a-entity>
 
     <!-- Artifact 1 -->
     <a-entity
-      gltf-model="modelos/conjunto_1/3.glb"
+      gltf-model="3.glb"
       scale="1 1 1"
       position="2 0.5 -3"
       class="artifact"
