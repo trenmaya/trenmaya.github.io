@@ -30,7 +30,7 @@
       scale="1 1 1"
       position="2 0.5 -3"
       class="artifact"
-      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000000000">
     </a-entity>
 
     <!-- Artifact 2 -->
@@ -39,7 +39,7 @@
       scale="0.8 0.8 0.8"
       position="-2 0.3 1"
       class="artifact"
-      animation="property: position; dir: alternate; to: -2 1 1; loop: true; dur: 2000">
+      animation="property: position; dir: alternate; to: -2 1 1; loop: true; dur: 20000000000">
     </a-entity>
 
     <!-- Info hotspot -->
@@ -65,8 +65,13 @@ let soundEl = siteEntity.querySelector("a-sound");
 cameraEl.addEventListener("gps-camera-update-position", (e) => {
   const lat = e.detail.position.latitude;
   const lon = e.detail.position.longitude;
-  const targetLat = 20.967370;
-  const targetLon = -89.592586;
+  const targetLat = 18.51012334;
+  const targetLon = -88.30974363;
+
+
+
+
+
 
   const distance = getDistance(lat, lon, targetLat, targetLon);
   if (distance < 25) {
