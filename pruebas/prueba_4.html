@@ -1,118 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AR sin marcador (WebXR Hit‑Test)</title>
-    <!-- A‑Frame -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <!-- Componente de Hit‑Test para A‑Frame -->
-    <script src="https://cdn.jsdelivr.net/npm/aframe-ar-hit-test-component@1.1.0/dist/aframe-ar-hit-test-component.min.js"></script>
-    <style>
-      html, body { margin: 0; padding: 0; height: 100%; }
-      .overlay { position: fixed; inset: 0; pointer-events: none; display: grid; place-items: end center; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-      .helper { pointer-events: auto; margin: 16px; background: rgba(0,0,0,.55); color: #fff; padding: 12px 14px; border-radius: 12px; line-height: 1.3; box-shadow: 0 8px 32px rgba(0,0,0,.35); }
-      .helper b { font-weight: 700; }
-      .btn { appearance: none; border: 0; border-radius: 999px; padding: 10px 14px; background: #fff; color: #111; font-weight: 600; }
-      .row { display: flex; gap: 10px; align-items: center; justify-content: center; }
-      .small { font-size: 12px; opacity: .85; margin-top: 6px; text-align: center; }
-    </style>
+    <script src="https://unpkg.com/aframe-gps-entity-place@1.8.0/dist/aframe-gps-entity-place.min.js"></script>
   </head>
-
-  <body>
-    <!-- UI superpuesta para instrucciones -->
-    <div id="overlay" class="overlay">
-      <div class="helper" id="ui">
-        <div>🧭 Mueve el teléfono lentamente para detectar una superficie.</div>
-        <div class="small">Cuando veas el anillo, toca la pantalla para <b>colocar</b> el objeto.<br/>Vuelve a tocar para <b>reubicarlo</b>.</div>
-        <div class="row" style="margin-top:8px;">
-          <button id="reset" class="btn">Reiniciar colocación</button>
-        </div>
-      </div>
-    </div>
-
+  <body style="margin: 0; overflow: hidden;">
     <a-scene
-gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
-      renderer="colorManagement: true; physicallyCorrectLights: true; logarithmicDepthBuffer: true"
-      embedded
-      webxr="optionalFeatures: hit-test, dom-overlay; overlayElement: #overlay"
-      xr-mode-ui="enabled: true"
+        gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+
+
       vr-mode-ui="enabled: false"
-      ar-hit-test="target:#objeto; type: map;">
+      embedded
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
 
-      <!-- Luz suave para que el GLB se vea bien -->
-      <a-entity light="type: hemisphere; intensity: 0.8"></a-entity>
-      <a-entity light="type: directional; intensity: 0.6" position="1 2 1"></a-entity>
+      <!-- Cámara con GPS -->
+      <a-camera gps-new-camera rotation-reader></a-camera>
 
-      <!-- Retícula/guía de colocación -->
-      <a-entity id="reticle" visible="false">
-        <a-ring radius-inner="0.045" radius-outer="0.06" rotation="-90 0 0" position="0 0 0" material="opacity:0.85; transparent:true"></a-ring>
-        <a-entity geometry="primitive: cylinder; radius: 0.001; height: 0.01" position="0 0 0" rotation="-90 0 0" material="opacity:0.5; transparent:true"></a-entity>
+      <!-- Modelo fijo en coordenadas -->
+      <a-entity
+        gltf-model="5.glb"
+        gps-entity-place="latitude: 18.51408854; longitude: -88.29677548"
+        scale="3 3 3"
+        rotation="0 180 0">
       </a-entity>
-
-      <!-- Tu modelo 3D (ajusta ruta/escala) -->
-      <a-gltf-model id="objeto" src="5.glb" visible="false" scale="0.4 0.4 0.4"></a-gltf-model>
-
-      <!-- Cámara AR -->
-      <a-entity camera></a-entity>
     </a-scene>
-
-    <script>
-      // Este script maneja: mostrar retícula cuando hay hit, tocar para anclar, y reiniciar.
-      const scene = document.querySelector('a-scene');
-      const model = document.querySelector('#objeto');
-      const reticle = document.querySelector('#reticle');
-      const resetBtn = document.querySelector('#reset');
-
-      // Eventos del componente ar-hit-test
-      scene.addEventListener('ar-hit-test-start', () => {
-        // Comienza la sesión AR
-        console.log('Hit‑test listo');
-      });
-
-      // Actualización continua de la posición del hit
-      scene.addEventListener('ar-hit-test-achieved', (e) => {
-        // Hay una intersección válida con una superficie
-        const { position, rotation } = e.detail; // THREE.Vector3 / Euler
-        if (!model.getAttribute('visible')) {
-          // Muestra la retícula hasta que se coloque el objeto
-          reticle.setAttribute('visible', true);
-          reticle.object3D.position.copy(position);
-          reticle.object3D.rotation.setFromVector3(rotation);
-        }
-      });
-
-      // Tocar para colocar o mover el objeto a la posición del hit actual
-      scene.addEventListener('click', () => {
-        if (reticle.getAttribute('visible')) {
-          model.setAttribute('visible', true);
-          model.object3D.position.copy(reticle.object3D.position);
-          model.object3D.rotation.copy(reticle.object3D.rotation);
-        }
-      });
-
-      // Botón: reiniciar el placement
-      resetBtn.addEventListener('click', () => {
-        model.setAttribute('visible', false);
-        reticle.setAttribute('visible', true);
-      });
-
-      // Opcional: clamp de escala con gestos (pinch‑to‑scale) sencillo
-      let baseDist = 0; let baseScale = model.object3D.scale.clone();
-      window.addEventListener('touchstart', (ev) => {
-        if (ev.touches.length === 2) {
-          baseDist = distance(ev.touches[0], ev.touches[1]);
-          baseScale = model.object3D.scale.clone();
-        }
-      }, {passive:true});
-      window.addEventListener('touchmove', (ev) => {
-        if (ev.touches.length === 2 && model.getAttribute('visible')) {
-          const d = distance(ev.touches[0], ev.touches[1]);
-          const s = Math.min(2.5, Math.max(0.1, (d / baseDist)));
-          model.object3D.scale.set(baseScale.x * s, baseScale.y * s, baseScale.z * s);
-        }
-      }, {passive:true});
-      function distance(a,b){ const dx=a.clientX-b.clientX, dy=a.clientY-b.clientY; return Math.hypot(dx,dy); }
-    </script>
   </body>
 </html>
