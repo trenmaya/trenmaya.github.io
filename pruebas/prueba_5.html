@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-gps-entity-place@1.8.0/dist/aframe-gps-entity-place.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+        gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+
+
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+
+      <!-- Cámara con GPS -->
+      <a-camera gps-new-camera rotation-reader></a-camera>
+
+      <!-- Modelo fijo en coordenadas -->
+      <a-entity
+        gltf-model="5.glb"
+        gps-entity-place="latitude: 18.51408854; longitude: -88.29677548"
+        scale="3 3 3"
+        rotation="0 180 0">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
