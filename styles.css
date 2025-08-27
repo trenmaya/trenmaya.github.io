@@ -495,14 +495,142 @@ background-color: var(--color-chenes);
 
 
 
+/*------------------------------JUEGO-------------------------------------------------*/
+/*Materiales chak*/
 
 
 
 
 
+h1 {
+    color: #4D594F;
+}
 
 
+/* Word Display */
+
+#word-display {
+    font-size: 24px;
+    letter-spacing: 10px;
+}
 
 
+/* Button Styling */
 
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    background-color: var(--color_chak_fondo);
+    color: var(--color_chak_letras);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--color_chak_lineas);
+}
+
+.correct {
+    background-color: #58A658!important;
+}
+
+.wrong {
+    background-color: #FF7470 !important;
+}
+
+
+/* Modal (Pop-Up) */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+    background-color: var(--color_mag);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    transform: scale(0.8);
+    animation: popIn 0.3s ease-in-out forwards;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+ul.no_bullets {
+    list-style-type: none;
+}
+
+
+/* Fireworks Effect */
+
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    max-width: 400px;
+    width: 100%;
+    background: transparent;
 }
