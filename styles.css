@@ -185,6 +185,12 @@ body.chak .styled-button {
   body.chak .top-buttons .styled-button {
     padding: 3%;
   }
+
+
+
+
+
+
 }
 
 /*--------------------------------------------------------*/
@@ -206,6 +212,20 @@ body.chak .styled-button {
   border-radius: 20px;
   z-index: 1;
 }
+
+.mapa_chak {
+  background-color: var(--color_chak_fondo);
+  height: 40vh;
+  position: relative;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+
+
+
+
+
 
 .mapa img {
   width: 100%;
@@ -385,4 +405,104 @@ background-color: var(--color-chenes);
     width: 100%;
     height: 100%;
   }
+
+}
+
+/*------------------------------Materiales-------------------------------------------------*/
+/*Materiales chak*/
+
+
+    .gallery-container {
+      width: 100%;
+      margin: 30px auto;
+      display: grid;
+    grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+
+
+
+
+
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: flex;
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      z-index: 1;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: var(--fondo);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .close {
+      color: var(--boton_1);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #aframe-container {
+      width: 100%;
+      height: 56.25vw;
+      max-height: 80vh;
+      border-radius: 10px;
+      border: 2px solid var(--boton_1);
+      overflow: hidden;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
