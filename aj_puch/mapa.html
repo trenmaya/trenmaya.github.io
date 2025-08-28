@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>K'an Báalam</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body class="puch">
+
+<div class="main-container">
+        <div class="header-title">
+            <img src="imagenes\logo.png" alt="Logotipo" class="logo">
+            <h1>K'an Báalam</h1>
+        </div>
+
+        <div class="top-buttons">
+            <a href="introduccion.html" class="styled-button">Introducción</a>
+            <a href="juego.html" class="styled-button">Juegos</a>
+            <a href="sitio_ar.html" class="styled-button">Sitio RA </a>
+        </div>
+
+
+
+        <!-- Mapa -->
+        <div class="mapa">
+            <img src="imagenes/mapaculturas.jpeg" alt="Mapa de monumentos" />
+            <div class="noroccidental" style="top: 2.9%; left: 1.9%" onclick="mostrarMonumento('noroccidental')"></div>
+            <div class="alto" style="top: 10.9%; left: 1.9%" onclick="mostrarMonumento('alto')"></div>
+            <div class="peten" style="top: 18.9%; left: 1.9%" onclick="mostrarMonumento('peten')"></div>
+            <div class="bec" style="top: 26.9%; left: 1.9%" onclick="mostrarMonumento('bec')"></div>
+            <div class="costa" style="top: 34.9%; left: 1.9%" onclick="mostrarMonumento('costa')"></div>
+            <div class="planicie" style="top: 42.9%; left: 1.9%" onclick="mostrarMonumento('planicie')"></div>
+            <div class="nororiental" style="top: 50.9%; left: 1.9%" onclick="mostrarMonumento('nororiental')"></div>
+            <div class="puuc" style="top: 58.9%; left: 1.9%" onclick="mostrarMonumento('puuc')"></div>
+            <div class="chenes" style="top: 66.9%; left: 1.9%" onclick="mostrarMonumento('chenes')"></div>
+        </div>
+
+        <div class="contenido">
+            <div class="viewer-luma" id="viewerLuma">
+                <iframe id="lumaFrame" src=""></iframe>
+            </div>
+            <div class="descripcion" id="textoMonumento"></div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarMonumento(id) {
+            const data = {
+                noroccidental: {
+                    titulo: "Estilo Noroccidental",
+                    texto: "",
+                },
+                alto: {
+                    titulo: "Estilo Alto Usumacinta",
+                    texto:
+                        "Esta es la estructura más alta y es la principal del conjounto ya que se encuentra justo enfrente del acceso a la plaza y delimita a la misma. Se trata de una plataforma piramidal escalonada con cista y acceso al este. Aparentemente contaba con una estructura superior que pudo tratatrse de un templo o un santuario hecho con materiales perecederos.",
+                },
+                peten: {
+                    titulo: "Estilo Petén",
+                    texto:
+                        "Son basamentos piramidales se catacterizan por tener taludes pronunciados y tener escalinatas adosadas. En la parte superior presentan templos con crestería que originalmente estaban adornadas con relieves y esculturas de piedra labrada.",
+                },
+                bec: {
+                    titulo: "Estilo Rio Bec",
+                    texto:
+                        "A este estilo pertenecen los sitios de Rio Bec. Becán, Xpujil, Chicanná, El Hormiguero, Culucbalom y Okolhuitz. Se caracteriza por sus basamentos bajos sobre las que se desplantan en su parte central los edificios.",
+                },
+                costa: {
+                    titulo: "Estilo Costa Oriental",
+                    texto:
+                        "A este pertenecen sitios que se pueden encontrar a lo largo de la costa del estado de Quintana Roo y fue el último estilo antes de la llegada de los españoles. Se caracterian por tener construcciones de menor tamaño. Ejemplos de este estilo son los sitios de Tulum, San Gervasio, El Rey, Polé. Xel Ha, Tnahkah y Muyil. ",
+                },
+                planicie: {
+                    titulo: "Estilo Planicie Nororiental",
+                    texto: "Plataforma central del conjunto",
+                },
+                nororiental: {
+                    titulo: "Estilo Planicie Nororiental",
+                    texto: "Plataforma central del conjunto",
+                },
+                puuc: {
+                    titulo: "Estilo Puuc",
+                    texto:
+                        "Este estilo se caracteriza por presentar un fino acabado de piedra que recubre el edificio, el cual está ensamblada como si fuera un mosaico, creanco grandes superficies lisas, con columnas en la parte supieror y en la base.",
+                },
+                chenes: {
+                    titulo: "Estilo Chenes",
+                    texto:
+                        "Los templos de este estilo se caracterizan por se bajos, con un complejo diseño sobre la fachada y, en algunos casos, con mascarones. La decoración y su complejodad es su característica más representativa.",
+                },
+            };
+            const seleccionado = data[id];
+
+            const texto = document.getElementById("textoMonumento");
+
+            texto.classList.add("active");
+            texto.innerHTML = `<h2>${seleccionado.titulo}</h2><p>${seleccionado.texto}</p>`;
+        }
+    </script>
+</body>
+
+</html>
