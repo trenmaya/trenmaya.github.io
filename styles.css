@@ -2,17 +2,19 @@
   --color_chak_fondo: #e48985;
   --color_chak_lineas: #634948;
   --color_chak_letras: #331514;
---color_chak_punto: #392120;
+  --color_chak_punto: #392120;
   --color_yax_fondo: #c1feff;
   --color_yax_lineas: #457f80;
+--color_yax_letras: #0B3233;
+--color_yax_punto: #205455;
   --color_kan_fondo: #faec8d;
   --color_kan_lineas: #7a765b;
---color_kan_letras: #332F15;
---color_kan_punto: #504B2E;
+  --color_kan_letras: #332f15;
+  --color_kan_punto: #504b2e;
   --color_sak_fondo: #d9d9d9;
   --color-sak_lineas: #8c8c8c;
---color_sak_letras: #404040;
---color_sak_punto:#595959;
+  --color_sak_letras: #404040;
+  --color_sak_punto: #595959;
   --color-noroccidental: #f1a626ff;
   --color-alto: #ef2265ff;
   --color-peten: #661114ff;
@@ -115,18 +117,31 @@ body.kan .header-title h1 {
 }
 
 /*-----------------------------*/
+/*----------BODY SAK-----------*/
+/*-----------------------------*/
+
+body.sak {
+  background-color: var(--color_sak_fondo);
+}
+
+
+
+
+
+
+/*-----------------------------*/
+/*----------BODY YAX-----------*/
+/*-----------------------------*/
 
 body.yax {
   background-color: var(--color_yax_fondo);
 }
 
-body.kan {
-  background-color: var(--color_kan_fondo);
-}
 
-body.sak {
-  background-color: var(--color_sak_fondo);
-}
+
+/*-----------------------------*/
+/*-----------------------------*/
+
 
 /* Contenedor principal */
 .main-container {
@@ -160,9 +175,6 @@ body.sak {
   height: 60px;
   width: auto;
 }
-
-
-
 
 /* Botones y secciones */
 .content-wrapper {
@@ -212,6 +224,15 @@ body.kan .styled-button {
   color: var(--color_kan_letras);
 }
 
+/*----------BODY SAK-------------------*/
+body.kan .styled-button {
+  color: var(--color_sak_letras);
+}
+
+/*------------BODY YAX-----------------*/
+body.kan .styled-button {
+  color: var(--color_yax_letras);
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
@@ -247,56 +268,105 @@ body.kan .styled-button {
     padding: 5%;
     font-size: 14px;
   }
-
 }
 
 /*-----------------------------*/
 /*---------CHAK BUTTONS--------*/
 /*-----------------------------*/
 
-  body.chak .top-buttons {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-  }
+body.chak .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
 
-  body.chak .top-buttons .styled-button {
-    padding: 3%;
-  }
+body.chak .top-buttons .styled-button {
+  padding: 3%;
+}
 
-  body.chakM .top-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 10px;
-  }
+body.chakM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
 
-  body.chakM .top-buttons .styled-button {
-    padding: 3%;
-  }
+body.chakM .top-buttons .styled-button {
+  padding: 3%;
+}
 
 /*-----------------------------*/
 /*---------KAN BUTTONS--------*/
 /*-----------------------------*/
 
- body.kan .top-buttons {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-  }
+body.kan .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
 
-  body.kan .top-buttons .styled-button {
-    padding: 3%;
-  }
+body.kan .top-buttons .styled-button {
+  padding: 3%;
+}
 
-  body.kanM .top-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 10px;
-  }
+body.kanM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
 
-  body.kanM .top-buttons .styled-button {
-    padding: 3%;
-  }
+body.kanM .top-buttons .styled-button {
+  padding: 3%;
+}
+
+
+
+
+
+/*-----------------------------*/
+/*---------SAK BUTTONS--------*/
+/*-----------------------------*/
+body.sak .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+body.sak .top-buttons .styled-button {
+  padding: 3%;
+}
+
+body.sakM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
+
+body.sakM .top-buttons .styled-button {
+  padding: 3%;
+}
+
+/*-----------------------------*/
+/*---------YAX BUTTONS--------*/
+/*-----------------------------*/
+body.yax .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+body.yax .top-buttons .styled-button {
+  padding: 3%;
+}
+
+body.yaxM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
+
+body.yaxM .top-buttons .styled-button {
+  padding: 3%;
+}
 
 /*-----------------------------*/
 
@@ -360,10 +430,35 @@ body.kanM .punto {
   background-color: var(--color_kan_punto);
 }
 
+
 /*-----------------------------*/
+/*---------SAK PUNTO--------*/
 /*-----------------------------*/
 
+body.sak .punto {
+  background-color: var(--color_kan_punto);
+}
 
+body.sakM .punto {
+  background-color: var(--color_kan_punto);
+}
+
+
+
+/*-----------------------------*/
+/*---------YAX PUNTO--------*/
+/*-----------------------------*/
+
+body.yax .punto {
+  background-color: var(--color_kan_punto);
+}
+
+body.yaxM .punto {
+  background-color: var(--color_kan_punto);
+}
+
+/*-----------------------------*/
+/*-----------------------------*/
 
 .punto_mapa {
   position: absolute;
@@ -601,6 +696,7 @@ h1 {
 }
 
 /* Button Styling */
+/*-------------IMPORTANTE CAMBIAR ESTO------------------------------*/
 
 button {
   margin: 5px;
@@ -613,8 +709,6 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
-
-
 
 button:hover {
   background-color: var(--color_chak_lineas);
@@ -654,13 +748,23 @@ button:hover {
   animation: popIn 0.3s ease-in-out forwards;
 }
 /*------------------------------*/
-body.chakM .modal-content{
- background-color: var(--color_chak_fondo);
+body.chakM .modal-content {
+  background-color: var(--color_chak_fondo);
 }
 
-body.kanM .modal-content{
- background-color: var(--color_kan_fondo);
+body.kanM .modal-content {
+  background-color: var(--color_kan_fondo);
 }
+
+body.sakM .modal-content {
+  background-color: var(--color_sak_fondo);
+}
+
+body.yaxM .modal-content {
+  background-color: var(--color_yax_fondo);
+}
+
+
 /*-----------------------------------*/
 
 .close {
