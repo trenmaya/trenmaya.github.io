@@ -39,12 +39,33 @@ body.chak {
   background-color: var(--color_chak_fondo);
 }
 
+body.chakM {
+  background-color: var(--color_chak_fondo);
+
+}
+
+
+
+
+
 body.chak .texto {
   font-size: 14px;
   font-weight: 500;
   color: var(--color_chak_letras);
   text-align: justify;
 }
+
+body.chakM .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_chak_letras);
+  text-align: justify;
+}
+
+
+
+
+
 
 body.yax {
   background-color: var(--color_yax_fondo);
@@ -59,6 +80,12 @@ body.sak {
 }
 
 body.chak .main-container {
+  border: 4px solid #a1887f;
+}
+
+
+
+body.chakM .main-container {
   border: 4px solid #a1887f;
 }
 
@@ -167,6 +194,15 @@ body.chak .styled-button {
     justify-content: center;
   }
 
+
+
+.top-buttons_1{
+
+    grid-template-columns: repeat(2, 2fr);
+
+
+}
+
   .top-buttons .styled-button {
     width: 100%;
     text-align: center;
@@ -186,7 +222,15 @@ body.chak .styled-button {
     padding: 3%;
   }
 
+  body.chakM .top-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 10px;
+  }
 
+body.chakM .top-buttons .styled-button {
+    padding: 3%;
+  }
 
 
 
@@ -227,6 +271,8 @@ body.chak .styled-button {
 
 
 
+
+
 .mapa img {
   width: 100%;
   height: 100%;
@@ -247,6 +293,18 @@ body.chak .styled-button {
 body.chak .punto{
   background-color: #392120;
 }
+
+body.chakM .punto{
+background-color: #392120;
+}
+
+
+
+
+
+
+
+
 
 .punto_mapa {
   position: absolute;
