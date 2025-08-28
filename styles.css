@@ -239,10 +239,13 @@ body.chak .styled-button {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #b99c67;
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid white;
+}
+
+body.chak .punto{
+  background-color: #392120;
 }
 
 .punto_mapa {
@@ -356,6 +359,8 @@ background-color: var(--color-chenes);
   background-color: #fdfaf4;
   padding: 10px;
 }
+
+
 
 .viewer-luma,
 .descripcion {
