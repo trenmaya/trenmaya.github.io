@@ -2,12 +2,17 @@
   --color_chak_fondo: #e48985;
   --color_chak_lineas: #634948;
   --color_chak_letras: #331514;
+--color_chak_punto: #392120;
   --color_yax_fondo: #c1feff;
   --color_yax_lineas: #457f80;
   --color_kan_fondo: #faec8d;
   --color_kan_lineas: #7a765b;
+--color_kan_letras: #332F15;
+--color_kan_punto: #504B2E;
   --color_sak_fondo: #d9d9d9;
   --color-sak_lineas: #8c8c8c;
+--color_sak_letras: #404040;
+--color_sak_punto:#595959;
   --color-noroccidental: #f1a626ff;
   --color-alto: #ef2265ff;
   --color-peten: #661114ff;
@@ -34,6 +39,8 @@ body {
   min-height: 100vh;
   padding: 20px;
 }
+/*-----------------------------*/
+/*----------BODY CHAK----------*/
 
 body.chak {
   background-color: var(--color_chak_fondo);
@@ -41,12 +48,7 @@ body.chak {
 
 body.chakM {
   background-color: var(--color_chak_fondo);
-
 }
-
-
-
-
 
 body.chak .texto {
   font-size: 14px;
@@ -62,10 +64,57 @@ body.chakM .texto {
   text-align: justify;
 }
 
+body.chak .main-container {
+  border: 4px solid var(--color_chak_lineas);
+}
 
+body.chakM .main-container {
+  border: 4px solid var(--color_chak_lineas);
+}
 
+body.chak .header-title h1 {
+  color: var(--color_chak_letras);
+}
 
+/*-----------------------------*/
+/*----------BODY KAN-----------*/
+/*-----------------------------*/
 
+body.kan {
+  background-color: var(--color_kan_fondo);
+}
+
+body.kanM {
+  background-color: var(--color_kan_fondo);
+}
+
+body.kan .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_kan_letras);
+  text-align: justify;
+}
+
+body.kanM .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_kan_letras);
+  text-align: justify;
+}
+
+body.kan .main-container {
+  border: 4px solid var(--color_kan_lineas);
+}
+
+body.kanM .main-container {
+  border: 4px solid var(--color_kan_lineas);
+}
+
+body.kan .header-title h1 {
+  color: var(--color_chak_letras);
+}
+
+/*-----------------------------*/
 
 body.yax {
   background-color: var(--color_yax_fondo);
@@ -77,16 +126,6 @@ body.kan {
 
 body.sak {
   background-color: var(--color_sak_fondo);
-}
-
-body.chak .main-container {
-  border: 4px solid #a1887f;
-}
-
-
-
-body.chakM .main-container {
-  border: 4px solid #a1887f;
 }
 
 /* Contenedor principal */
@@ -122,10 +161,8 @@ body.chakM .main-container {
   width: auto;
 }
 
-/* chak */
-body.chak .header-title h1 {
-  color: var(--color_chak_letras);
-}
+
+
 
 /* Botones y secciones */
 .content-wrapper {
@@ -165,10 +202,16 @@ body.chak .header-title h1 {
   transform: translateY(-2px);
 }
 
-/* chak */
+/*----------BODY CHAK----------*/
 body.chak .styled-button {
   color: var(--color_chak_letras);
 }
+
+/*----------BODY KAN----------*/
+body.kan .styled-button {
+  color: var(--color_kan_letras);
+}
+
 
 /* Responsivo */
 @media (max-width: 768px) {
@@ -194,14 +237,9 @@ body.chak .styled-button {
     justify-content: center;
   }
 
-
-
-.top-buttons_1{
-
+  .top-buttons_1 {
     grid-template-columns: repeat(2, 2fr);
-
-
-}
+  }
 
   .top-buttons .styled-button {
     width: 100%;
@@ -210,7 +248,11 @@ body.chak .styled-button {
     font-size: 14px;
   }
 
-  /*Chak*/
+}
+
+/*-----------------------------*/
+/*---------CHAK BUTTONS--------*/
+/*-----------------------------*/
 
   body.chak .top-buttons {
     display: grid;
@@ -228,16 +270,36 @@ body.chak .styled-button {
     gap: 10px;
   }
 
-body.chakM .top-buttons .styled-button {
+  body.chakM .top-buttons .styled-button {
     padding: 3%;
   }
 
+/*-----------------------------*/
+/*---------KAN BUTTONS--------*/
+/*-----------------------------*/
 
+ body.kan .top-buttons {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 
+  body.kan .top-buttons .styled-button {
+    padding: 3%;
+  }
 
-}
+  body.kanM .top-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 10px;
+  }
 
-/*--------------------------------------------------------*/
+  body.kanM .top-buttons .styled-button {
+    padding: 3%;
+  }
+
+/*-----------------------------*/
+
 .split-container {
   width: 100%;
   max-width: 1000px;
@@ -257,22 +319,6 @@ body.chakM .top-buttons .styled-button {
   z-index: 1;
 }
 
-.mapa_chak {
-  background-color: var(--color_chak_fondo);
-  height: 40vh;
-  position: relative;
-  border-radius: 20px;
-  z-index: 1;
-}
-
-
-
-
-
-
-
-
-
 .mapa img {
   width: 100%;
   height: 100%;
@@ -290,19 +336,32 @@ body.chakM .top-buttons .styled-button {
   border: 2px solid white;
 }
 
-body.chak .punto{
-  background-color: #392120;
+/*-----------------------------*/
+/*---------CHAK PUNTO--------*/
+/*-----------------------------*/
+
+body.chak .punto {
+  background-color: var(--color_chak_punto);
 }
 
-body.chakM .punto{
-background-color: #392120;
+body.chakM .punto {
+  background-color: var(--color_chak_punto);
 }
 
+/*-----------------------------*/
+/*---------KAN PUNTO--------*/
+/*-----------------------------*/
 
+body.kan .punto {
+  background-color: var(--color_kan_punto);
+}
 
+body.kanM .punto {
+  background-color: var(--color_kan_punto);
+}
 
-
-
+/*-----------------------------*/
+/*-----------------------------*/
 
 
 
@@ -314,111 +373,91 @@ background-color: #392120;
   border: 2px solid white;
 }
 
-
-.noroccidental
-{
- position: absolute;
+.noroccidental {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-noroccidental);
+  background-color: var(--color-noroccidental);
 }
 
-.alto
-{
- position: absolute;
+.alto {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-alto);
+  background-color: var(--color-alto);
 }
 
-.peten
-{
- position: absolute;
+.peten {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-peten);
+  background-color: var(--color-peten);
 }
 
-.bec
-{
- position: absolute;
+.bec {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-bec);
+  background-color: var(--color-bec);
 }
 
-.costa
-{
- position: absolute;
+.costa {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-costa);
+  background-color: var(--color-costa);
 }
 
-.planicie
-{
- position: absolute;
+.planicie {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-planicie);
+  background-color: var(--color-planicie);
 }
 
-.nororiental
-{
- position: absolute;
+.nororiental {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-nororiental);
+  background-color: var(--color-nororiental);
 }
 
-.puuc
-{
- position: absolute;
+.puuc {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-puuc);
+  background-color: var(--color-puuc);
 }
 
-.chenes
-{
- position: absolute;
+.chenes {
+  position: absolute;
   width: 20px;
   height: 20px;
   cursor: pointer;
   border: 2px solid white;
-background-color: var(--color-chenes);
+  background-color: var(--color-chenes);
 }
-
-
-
-
-
-
-
-
 
 .contenido {
   background-color: #fdfaf4;
   padding: 10px;
 }
-
-
 
 .viewer-luma,
 .descripcion {
@@ -468,232 +507,222 @@ background-color: var(--color-chenes);
     width: 100%;
     height: 100%;
   }
-
 }
 
 /*------------------------------Materiales-------------------------------------------------*/
 /*Materiales chak*/
 
+.gallery-container {
+  width: 100%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
 
-    .gallery-container {
-      width: 100%;
-      margin: 30px auto;
-      display: grid;
-    grid-template-columns: repeat(1, 1fr);
-      gap: 10px;
-      padding: 20px;
-    }
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-    }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      transition: transform 0.3s ease-in-out;
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
 
+.modal {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1;
+}
 
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
 
+.modal-content {
+  background-color: var(--fondo);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
 
+.close {
+  color: var(--boton_1);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    }
-
-    .gallery-item img:hover {
-      transform: scale(1.05);
-    }
-
-    .modal {
-      display: flex;
-      opacity: 0;
-      visibility: hidden;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-      z-index: 1;
-    }
-
-    .modal.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-content {
-      background-color: var(--fondo);
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .close {
-      color: var(--boton_1);
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    #aframe-container {
-      width: 100%;
-      height: 56.25vw;
-      max-height: 80vh;
-      border-radius: 10px;
-      border: 2px solid var(--boton_1);
-      overflow: hidden;
-    }
-
-
-
-
+#aframe-container {
+  width: 100%;
+  height: 56.25vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  border: 2px solid var(--boton_1);
+  overflow: hidden;
+}
 
 /*------------------------------JUEGO-------------------------------------------------*/
 /*Materiales chak*/
 
-
-
-
-
 h1 {
-    color: #4D594F;
+  color: #4d594f;
 }
-
 
 /* Word Display */
 
 #word-display {
-    font-size: 24px;
-    letter-spacing: 10px;
+  font-size: 24px;
+  letter-spacing: 10px;
 }
-
 
 /* Button Styling */
 
 button {
-    margin: 5px;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    background-color: var(--color_chak_fondo);
-    color: var(--color_chak_letras);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+  margin: 5px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  background-color: #8a8a8a;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+
+
 button:hover {
-    background-color: var(--color_chak_lineas);
+  background-color: var(--color_chak_lineas);
 }
 
 .correct {
-    background-color: #58A658!important;
+  background-color: #58a658 !important;
 }
 
 .wrong {
-    background-color: #FF7470 !important;
+  background-color: #ff7470 !important;
 }
-
 
 /* Modal (Pop-Up) */
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.5s ease-in-out;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .modal-content {
-    background-color: var(--color_mag);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    transform: scale(0.8);
-    animation: popIn 0.3s ease-in-out forwards;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  transform: scale(0.8);
+  animation: popIn 0.3s ease-in-out forwards;
+}
+/*------------------------------*/
+body.chakM .modal-content{
+ background-color: var(--color_chak_fondo);
 }
 
+body.kanM .modal-content{
+ background-color: var(--color_kan_fondo);
+}
+/*-----------------------------------*/
+
 .close {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 24px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 ul.no_bullets {
-    list-style-type: none;
+  list-style-type: none;
 }
-
 
 /* Fireworks Effect */
 
 #fireworks-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
 }
-
 
 /* Animations */
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popIn {
-    from {
-        transform: scale(0.8);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .game-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  margin-top: 2rem;
 }
 
 .game-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 10px;
-    max-width: 400px;
-    width: 100%;
-    background: transparent;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  max-width: 400px;
+  width: 100%;
+  background: transparent;
 }
