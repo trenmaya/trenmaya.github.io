@@ -19,14 +19,18 @@
   --color_puch_lineas: #6161c2;
   --color_puch_punto: #9e9eec;
   --color_puch_letras: #12126D;
-  --color_aeropuerto_fondo: #017d73;
-  --color_aeropuerto_lineas: #81fcf2;
-  --color_aeropuerto_punto: #adfff8;
-  --color_aeropuerto_letras: #d7fffc;
+  --color_chetumal_fondo: #017d73;
+  --color_chetumal_lineas: #81fcf2;
+  --color_chetumal_punto: #adfff8;
+  --color_chetumal_letras: #d7fffc;
   --color_bacalar_fondo: #66a3d9;
   --color_bacalar_lineas: #66d9c4;
   --color_bacalar_punto: #7266d9;
-  --color_bacalar_letras: #aec5d9;
+  --color_bacalar_letras: #667FD9;
+  --color_kohunlich_fondo: #FE9DBE;
+  --color_kohunlich_lineas: #805764;
+  --color_kohunlich_punto: #552C39;
+  --color_kohunlich_letras: #33121D;
   --color-noroccidental: #f1a626ff;
   --color-alto: #ef2265ff;
   --color-peten: #661114ff;
@@ -243,6 +247,122 @@ body.puch .header-title h1 {
   color: var(--color_puch_letras);
 }
 
+/*-----------------------------*/
+/*----------BODY KOHUNLICH----------*/
+/*-----------------------------*/
+
+body.kohunlich {
+  background-color: var(--color_kohunlich_fondo);
+}
+
+body.kohunlichM {
+  background-color: var(--color_kohunlich_fondo);
+}
+
+body.kohunlich .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_kohunlich_letras);
+  text-align: justify;
+}
+
+body.kohunlichM .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_kohunlich_letras);
+  text-align: justify;
+}
+
+body.kohunlich .main-container {
+  border: 4px solid var(--color_kohunlich_lineas);
+}
+
+body.kohunlichM .main-container {
+  border: 4px solid var(--color_kohunlich_lineas);
+}
+
+body.kohunlich .header-title h1 {
+  color: var(--color_kohunlich_letras);
+}
+
+
+/*-----------------------------*/
+/*----------BODY CHETUMAL----------*/
+/*-----------------------------*/
+
+body.chetumal {
+  background-color: var(--color_chetumal_fondo);
+}
+
+body.chetumalM {
+  background-color: var(--color_chetumal_fondo);
+}
+
+body.chetumal .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_chetumal_letras);
+  text-align: justify;
+}
+
+body.chetumalM .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_chetumal_letras);
+  text-align: justify;
+}
+
+body.chetumal .main-container {
+  border: 4px solid var(--color_chetumal_lineas);
+}
+
+body.chetumalM .main-container {
+  border: 4px solid var(--color_chetumal_lineas);
+}
+
+body.chetumal .header-title h1 {
+  color: var(--color_chetumal_letras);
+}
+/*-----------------------------*/
+/*----------BODY BACALAR----------*/
+/*-----------------------------*/
+
+body.bacalar {
+  background-color: var(--color_bacalar_fondo);
+}
+
+body.bacalarM {
+  background-color: var(--color_bacalar_fondo);
+}
+
+body.bacalar .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_bacalar_letras);
+  text-align: justify;
+}
+
+body.bacalarM .texto {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color_bacalar_letras);
+  text-align: justify;
+}
+
+body.bacalar .main-container {
+  border: 4px solid var(--color_bacalar_lineas);
+}
+
+body.bacalarM .main-container {
+  border: 4px solid var(--color_bacalar_lineas);
+}
+
+body.bacalar .header-title h1 {
+  color: var(--color_bacalar_letras);
+}
+/*----------------------------------------------------------*/
+/*----------------------------------------------------------*/
+/*----------------------------------------------------------*/
 
 
 
@@ -274,6 +394,18 @@ body.yaxM .main-container {
 }
 
 body.puchM .main-container {
+  border: 4px solid var(--color_puch_lineas);
+}
+
+body.kohunlichM .main-container {
+  border: 4px solid var(--color_puch_lineas);
+}
+
+body.chetumalM .main-container {
+  border: 4px solid var(--color_puch_lineas);
+}
+
+body.bacalarM .main-container {
   border: 4px solid var(--color_puch_lineas);
 }
 
@@ -361,6 +493,22 @@ body.kan .styled-button {
 body.puch .styled-button {
   color: var(--color_puch_letras);
 }
+
+/*------------BODY KOHUNLICH-----------------*/
+body.kohunlich .styled-button {
+  color: var(--color_kohunlich_letras);
+}
+
+/*------------BODY CHETUMAL-----------------*/
+body.chetumal .styled-button {
+  color: var(--color_chetumal_letras);
+}
+
+/*------------BODY bacalar-----------------*/
+body.bacalar .styled-button {
+  color: var(--color_bacalar_letras);
+}
+
 
 /* Responsivo */
 @media (max-width: 768px) {
@@ -515,6 +663,78 @@ body.puchM .top-buttons .styled-button {
   padding: 3%;
 }
 
+/*-----------------------------*/
+/*---------KOHUNLICH BUTTONS--------*/
+/*-----------------------------*/
+
+body.kohunlich .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+body.kohunlich .top-buttons .styled-button {
+  padding: 3%;
+}
+
+body.kohunlichM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
+
+body.kohunlichM .top-buttons .styled-button {
+  padding: 3%;
+}
+
+/*-----------------------------*/
+/*---------CHETUMAL BUTTONS--------*/
+/*-----------------------------*/
+
+body.chetumal .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+body.chetumal .top-buttons .styled-button {
+  padding: 3%;
+}
+
+body.chetumalM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
+
+body.chetumalM .top-buttons .styled-button {
+  padding: 3%;
+}
+
+/*-----------------------------*/
+/*---------BACALAR BUTTONS--------*/
+/*-----------------------------*/
+
+body.bacalar .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+body.bacalar .top-buttons .styled-button {
+  padding: 3%;
+}
+
+body.bacalarM .top-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 10px;
+}
+
+body.bacalarM .top-buttons .styled-button {
+  padding: 3%;
+}
+
 
 /*-----------------------------*/
 
@@ -614,6 +834,41 @@ body.puchM .punto {
   background-color: var(--color_puch_punto);
 }
 
+/*-----------------------------*/
+/*---------KOHUNLICH PUNTO--------*/
+/*-----------------------------*/
+
+body.kohunlich .punto {
+  background-color: var(--color_kohunlich_punto);
+}
+
+body.kohunlichM .punto {
+  background-color: var(--color_kohunlich_punto);
+}
+
+/*-----------------------------*/
+/*---------CHETUMAL PUNTO--------*/
+/*-----------------------------*/
+
+body.chetumal .punto {
+  background-color: var(--color_chetumal_punto);
+}
+
+body.chetumalM .punto {
+  background-color: var(--color_chetumal_punto);
+}
+
+/*-----------------------------*/
+/*---------BACALAR PUNTO--------*/
+/*-----------------------------*/
+
+body.bacalar .punto {
+  background-color: var(--color_bacalar_punto);
+}
+
+body.bacalarM .punto {
+  background-color: var(--color_bacalar_punto);
+}
 /*-----------------------------*/
 /*-----------------------------*/
 
@@ -923,6 +1178,18 @@ body.yaxM .modal-content {
 
 body.puchM .modal-content {
   background-color: var(--color_puch_fondo);
+}
+
+body.kohunlichM .modal-content {
+  background-color: var(--color_kohunlich_fondo);
+}
+
+body.chetumalM .modal-content {
+  background-color: var(--color_chetumal_fondo);
+}
+
+body.bacalarM .modal-content {
+  background-color: var(--color_bacalar_fondo);
 }
 
 /*-----------------------------------*/
